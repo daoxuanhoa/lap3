@@ -1,0 +1,7 @@
+SQL> connect 'D:/xuanhoa.fdb' user 'SYSDBA' password 'masterkey';
+Database:  'D:/xuanhoa.fdb', User: SYSDBA
+
+ALTER TABLE CLASS
+ 	ADD NUM_CLASS INTEGER NOT NULL; 
+ALTER TABLE CLASS
+	 DROP NUM_CLASS;
