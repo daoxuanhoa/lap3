@@ -1,7 +1,15 @@
 SQL> connect 'D:/xuanhoa.fdb' user 'SYSDBA' password 'masterkey';
 Database:  'D:/xuanhoa.fdb', User: SYSDBA
 
-ALTER TABLE CLASS
- 	ADD NUM_CLASS INTEGER NOT NULL; 
-ALTER TABLE CLASS
-	 DROP NUM_CLASS;
+1. Ввести типы абонементов (на определенные виды спорта, полный и пр.)
+CREATE TABLE SesonTicket(
+	ID_SesonTicket INT NOT NULL AUTO_INCREMENT,
+	SPORT_ID_SESON INT NOT NULL,
+	PRIMARY KEY (ID_SesonTicket)
+);
+ALTER TABLE SesonTicket ADD CONSTRAINT SesonTicket_fk0 FOREIGN KEY (SPORT_ID_SESON) REFERENCES SPORT(ID_SPORT);
+ALTER TABLE CLIENTS ADD CONSTRAINT CLIENTS_fk0 FOREIGN KEY (SPORT_ID_CLIENTS) REFERENCES SesonTicket(ID_SesonTicket);
+
+2. Ввести дополнительные услуги к абонементам.
+ALTER TABLE SesonTicket
+ 	ADD PRICE INTEGER NOT NULL; 
